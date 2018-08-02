@@ -106,7 +106,7 @@ module Xrandr
     def parse_modes(modes)
       modes.map do |data|
         parse_mode data
-      end
+      end.compact
     end
 
     def parse_mode(data)
@@ -121,6 +121,8 @@ module Xrandr
              }
 
       Mode.new args
+    rescue
+      nil
     end
   end
 
